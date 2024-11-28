@@ -1,17 +1,14 @@
 <div id="projects" class="container max-w-[1088px] py-8">
   <div class="mb-12">
-    <h1 class="text-xl font-semibold mb-2">Projects</h1>
+    <h1 class="text-xl font-semibold mb-2">The Directory</h1>
   </div>
   <div class="mb-12 flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
     <span>FILTERS:</span>
     <input class="search w-full md:w-1/2 lg:w-auto" placeholder="Search" />
     <?php snippet('blocks/filter', ['filters' => $categories, 'group' => 'category', 'label' => 'Category']) ?>
-    <?php snippet('blocks/filter', ['filters' => $types, 'group' => 'type', 'label' => 'Project type']) ?>
-    <?php snippet('blocks/filter', ['filters' => $status, 'group' => 'status', 'label' => 'Status']) ?>
-    <?php snippet('blocks/filter', ['filters' => $seekingParticipants, 'group' => 'participants', 'label' => 'Seeking participants']) ?>
   </div>
   <ul class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 mx-auto list">
-    <?php foreach ($page->children()->listed()->sortBy('title', 'asc') as $project) : ?>
+    <?php foreach ($page->children()->sortBy('title', 'asc') as $project) : ?>
       <li class="list-none" data-title="<?= $project->title() ?>" data-status="<?= $project->projectStatus() ?? null ?>" data-type="<?= $project->type() ?? null ?>" data-category="<?= $project->category() ?? null ?>" data-participants="<?= ($project->seekingParticipants()->toBool()) ? 'Yes' : 'No' ?>">
         <a href="<?= $project->url() ?>">
           <?php snippet('window', ['title' => $project->title(), 'subheading' => $project->subheading()], slots: true) ?>
