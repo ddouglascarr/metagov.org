@@ -5,7 +5,6 @@
   <div class="mb-12 flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
     <span>FILTERS:</span>
     <input class="search w-full md:w-1/2 lg:w-auto" placeholder="Search" />
-    <?php snippet('blocks/filter', ['filters' => $categories, 'group' => 'category', 'label' => 'Category']) ?>
     <?php snippet('blocks/filter', ['filters' => $stages, 'group' => 'stage', 'label' => 'Stage']) ?>
   </div>
   <ul class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 mx-auto list">
