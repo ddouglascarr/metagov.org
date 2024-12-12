@@ -6,10 +6,11 @@
     <span>FILTERS:</span>
     <input class="search w-full md:w-1/2 lg:w-auto" placeholder="Search" />
     <?php snippet('blocks/filter', ['filters' => $categories, 'group' => 'category', 'label' => 'Category']) ?>
+    <?php snippet('blocks/filter', ['filters' => $stages, 'group' => 'stage', 'label' => 'Stage']) ?>
   </div>
   <ul class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 mx-auto list">
     <?php foreach ($page->children()->sortBy('title', 'asc') as $project) : ?>
-      <li class="list-none" data-title="<?= $project->title() ?>" data-status="<?= $project->projectStatus() ?? null ?>" data-type="<?= $project->type() ?? null ?>" data-category="<?= $project->category() ?? null ?>" data-participants="<?= ($project->seekingParticipants()->toBool()) ? 'Yes' : 'No' ?>">
+      <li class="list-none" data-title="<?= $project->title() ?>" data-status="<?= $project->projectStatus() ?? null ?>" data-type="<?= $project->type() ?? null ?>" data-category="<?= $project->category() ?? null ?>" data-stage="<?= $project->stage() ?? null ?>" data-participants="<?= ($project->seekingParticipants()->toBool()) ? 'Yes' : 'No' ?>">
         <a href="<?= $project->url() ?>">
           <?php snippet('window', ['title' => $project->title(), 'subheading' => $project->subheading()], slots: true) ?>
           <?php if ($image = $project->cover()->toFile()) : ?>
@@ -35,19 +36,17 @@
 
 <script>
   var filters = {
-    category: [],
-    type: [],
-    status: [],
-    participants: []
+    stage: []
   }
 
   var options = {
     valueNames: [{
-      data: ['title', 'category', 'type', 'status', 'participants']
+      data: ['stage']
     }]
   }
 
   var projectList = new List('projects', options);
+  console.log('projectList', projectList)
 
   projectList.on('updated', function(list) {
     if (list.matchingItems.length > 0) {
@@ -59,47 +58,23 @@
 
   var resetFilter = () => {
     filters = {
-      category: [],
-      type: [],
-      status: [],
-      participants: []
+      stage: [],
     }
     updateList()
   }
 
   var updateList = () => {
     projectList.filter(function(item) {
-      let category = false
-      let type = false
-      let status = false
-      let participants = false
+      let stage = false
 
-      if (filters.category.find((element) => item.values().category.includes(element)) || filters.category.length == 0) {
-        category = true
+      if (filters.stage.find((element) => item.values().stage.includes(element)) || filters.stage.length == 0) {
+        stage = true
       } else {
-        category = false
+        stage = false
       }
 
-      if (filters.type.find((element) => item.values().type.includes(element)) || filters.type.length == 0) {
-        type = true
-      } else {
-        type = false
-      }
-
-      if (filters.status.indexOf(item.values().status) > -1 || filters.status.length == 0) {
-        status = true
-      } else {
-        status = false
-      }
-
-      if (filters.participants.indexOf(item.values().participants) > -1 || filters.participants.length == 0) {
-        participants = true
-      } else {
-        participants = false
-      }
-
-      if (category && type && status && participants) return true
-      else return false
+      if (stage) return true
+      return false
     })
   }
 
