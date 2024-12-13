@@ -3,7 +3,7 @@
     <!-- Nav -->
     <div class="mb-8 flex flex-wrap">
       <div class="flex-auto text-left">
-        <a href="<?= $page->parent()->url() ?>">&larr; Deliberative Tool Directory</a>
+        <a href="<?= $page->parent()->url() ?>">&larr; Deliberative Tool Gallery</a>
       </div>
     </div>
     <!-- End Nav -->
@@ -116,7 +116,7 @@
       </div>
 
       <div class="flex-auto text-center">
-        <a href="<?= $page->parent()->url() ?>">Deliberative Tool Directory</a>
+        <a href="<?= $page->parent()->url() ?>">Deliberative Tool Gallery</a>
       </div>
 
       <div class="flex-auto text-right">

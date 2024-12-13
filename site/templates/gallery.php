@@ -1,5 +1,5 @@
 <?php snippet('header') ?>
 
-<?php snippet('pages/directory', ['page' => $page]) ?>
+<?php snippet('pages/gallery', ['page' => $page]) ?>
 
 <?php snippet('footer') ?>
