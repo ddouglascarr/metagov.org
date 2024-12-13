@@ -50,15 +50,15 @@
           </div>
         <?php endif ?>
       </div>
-      <!--
       <div class="space-y-1">
-        <?php if ($page->type()->isNotEmpty()) : ?>
-          <h5 class="mb-2">PROJECT TYPE</h5>
-          <?php foreach ($page->type()->split() as $type) : ?>
-            <span class="tag"><?= $type ?></span>
+        <?php if ($page->stage()->isNotEmpty()) : ?>
+          <h5 class="mb-2">Stage</h5>
+          <?php foreach ($page->stage()->split() as $stage) : ?>
+            <span class="tag"><?= $stage ?></span>
           <?php endforeach ?>
         <?php endif ?>
       </div>
+      <!--
       <div class="col-span-2">
         <?php if ($page->contact()->isNotEmpty()) : ?>
           <div class="mb-8">
