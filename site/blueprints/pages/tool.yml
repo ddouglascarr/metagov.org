@@ -1,0 +1,48 @@
+title: Tool
+type: pages
+icon: 🛠
+parent: kirby.page("gallery")
+
+columns:
+  main:
+    width: 2/3
+    fields:
+      subheading:
+        label: Subheading
+        type: text
+        validate: notEmpty
+        required: true
+      cover:
+        label: Cover image
+        type: files
+        multiple: false
+        layout: cards
+        size: large
+        uploads:
+          template: image
+        validate: notEmpty
+        required: true
+      website:
+        label: Website
+        description: Link to project site for iframe / embedding
+        type: url
+
+  sidebar:
+    width: 1/3
+    sections:
+      meta:
+        type: fields
+        fields:
+          stage:
+            label: Stage
+            type: tags
+            options:
+              - "Framing"
+              - "Elicitation"
+              - "Learning"
+              - "Deliberation"
+              - "Decisional"
+              - "Deciding"
+              - "Actuation"
+              - "Reflection"
+
