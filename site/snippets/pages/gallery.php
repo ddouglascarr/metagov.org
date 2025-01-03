@@ -1,15 +1,17 @@
 <div id="projects" class="container max-w-[1088px] py-8">
   <div class="mb-12">
-  <h1 class="text-xl font-semibold mb-2">Deliberative Tool Gallery</h1>
+  <h1 class="text-xl font-black text-brand mb-2">Deliberative Tool Gallery</h1>
   </div>
-  <div class="flex">
-    <div class="flex-none w-64 divide-y p-2">
-      <h4 class="font-extrabold text-brand p-2">Stage</h4>
-      <ul>
-      <?php snippet('blocks/checkboxfilter', ['filters' => $stages, 'group' => 'stage', 'label' => 'Stage']) ?>
-      </ul>
-      <div class="p-2">
-      <input class="search w-full md:w-1/2 lg:w-auto" placeholder="Search" />
+  <div class="flex space-x-4">
+    <div class="flex-none w-64 divide-y">
+      <div>
+        <h4 class="font-black text-brand pb-2">Stage</h4>
+        <ul class="indent-2">
+          <?php snippet('blocks/checkboxfilter', ['filters' => $stages, 'group' => 'stage', 'label' => 'Stage']) ?>
+        </ul>
+      </div>
+      <div>
+        <input class="search w-full my-2" placeholder="Search" />
       </div>
 
     </div>
