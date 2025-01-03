@@ -44,7 +44,8 @@ return [
       ]
     ]
   ],
-  'thathoff.git-content.disable' => true,
+  'thathoff.git-content.disable' => false,
+  'thathoff.git-content.push' => true,
   'routes' => [
     [
       'pattern' => 'sitemap.xml',
