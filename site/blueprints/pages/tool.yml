@@ -26,6 +26,14 @@ columns:
         label: Website
         description: Link to project site for iframe / embedding
         type: url
+      inputs:
+        label: Inputs
+        type: text
+        description: Inputs from the wider deliberative process
+      outputs:
+        label: Outputs
+        type: text
+        description: Outputs to the wider deliberative process
 
   sidebar:
     width: 1/3
@@ -44,4 +52,40 @@ columns:
               - "Decision"
               - "Actuation"
               - "Reflection"
+
+          function:
+            label: Function
+            type: tags
+            options:
+              - "Identifying tradeoffs"
+              - "Drafting policies"
+              - "Editing policies"
+              - "Identifying scenarios"
+              - "Mapping the problem space"
+              - "Mapping the solution space"
+              - "Identifying expertise"
+              - "Navigating conflict"
+              - "Coming to decisions"
+              - "Evaluating evidentiary justification for decisions"
+              - "Reconciling conflicting versions of policies"
+              - "Executing on policies"
+              - "Adjudicating using policies"
+              - "Determining budgets"
+              - "Creating agendas"
+              - "Prioritizing"
+
+          license:
+            label: License
+            type: tags
+            options:
+              - "MIT"
+              - "GPL"
+              - "AGPL"
+              - "Proprietary"
+
+          infrastructure:
+            label: Infrastructure dependencies
+            description: Systems required to run the tool (e.g. chatGPT)
+            type: text
+
 

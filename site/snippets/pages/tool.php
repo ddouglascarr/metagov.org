@@ -9,23 +9,11 @@
     <!-- End Nav -->
 
     <div class="mb-2 flex gap-4 items-center">
-      <h1 class="text-xxl"><?= $page->title()->esc() ?></h1>
-      <!--
-      <?php foreach ($page->projectStatus()->split() as $key => $status) : ?>
-        <?php if ($key == 0) : ?>
-          <span class="tag active"><?= $status ?></span>
-        <?php else : ?>
-          <span class="tag secondary active"><?= $status ?></span>
-        <?php endif ?>
-      <?php endforeach ?>
-      <?php if ($page->seeking_participants()->toBool()) : ?>
-        <a href="#participate" class="tag secondary active block" @click="participate = true">✅ SEEKING PARTICIPANTS</a>
-      <?php endif ?>
-      -->
+      <h1 class="text-xxl full-width"><?= $page->title()->esc() ?></h1>
     </div>
-    <h2 class="text-large">
-      <?= $page->subheading()->esc() ?>
-    </h2>
+      <h2 class="text-large">
+        <?= $page->subheading()->esc() ?>
+      </h2>
   </div>
 
   <?php if ($page->cover()->isNotEmpty()) : ?>
@@ -35,10 +23,33 @@
   <article>
 
     <!-- Project meta -->
-    <div class="mb-8 grid md:grid-cols-3 md:justify-evenly gap-6">
-      <div>
-        <?php if ($page->links()->isNotEmpty()) : ?>
-          <h5 class="mb-2">LINKS</h5>
+    <div class="mb-16 grid md:grid-cols-3 md:justify-evenly gap-6">
+      <?php if ($page->stage()->isNotEmpty()) : ?>
+        <div class="space-y-1">
+          <h5 class="mb-2">Stage</h5>
+          <?php foreach ($page->stage()->split() as $stage) : ?>
+            <span class="tag"><?= $stage ?></span>
+          <?php endforeach ?>
+        </div>
+      <?php endif ?>
+      <?php if ($page->function()->isNotEmpty()) : ?>
+        <div class="space-y-1">
+          <h5 class="mb-2">Function</h5>
+          <?php foreach ($page->function()->split() as $function) : ?>
+            <span class="tag"><?= $function?></span>
+          <?php endforeach ?>
+        </div>
+      <?php endif ?>
+      <?php if ($page->license()->isNotEmpty()) : ?>
+        <div class="space-y-1">
+          <h5 class="mb-2">License</h5>
+          <span class="tag"><?= $page->license()->esc() ?></span>
+        </div>
+      <?php endif ?>
+
+      <?php if ($page->links()->isNotEmpty()) : ?>
+        <div>
+          <h5 class="mb-2">Links</h5>
           <div>
             <?php
             $links = $page->links()->toStructure();
@@ -48,87 +59,21 @@
               </a>
             <?php endforeach ?>
           </div>
-        <?php endif ?>
-      </div>
-      <div class="space-y-1">
-        <?php if ($page->stage()->isNotEmpty()) : ?>
-          <h5 class="mb-2">Stage</h5>
-          <?php foreach ($page->stage()->split() as $stage) : ?>
-            <span class="tag"><?= $stage ?></span>
-          <?php endforeach ?>
-        <?php endif ?>
-      </div>
-      <!--
-      <div class="col-span-2">
-        <?php if ($page->contact()->isNotEmpty()) : ?>
-          <div class="mb-8">
-            <h5 class="mb-2">PRINCIPLE CONTACT</h5>
-            <?= Html::email($page->contact()) ?>
-          </div>
-        <?php endif ?>
-        <?php if ($page->research_directors()->isNotEmpty()) : ?>
-          <div class="mb-8">
-            <h5 class="mb-2">RESEARCH DIRECTORS</h5>
-            <?php
-            $researchDirectors =  $page->research_directors()->toPages();
-            foreach ($researchDirectors as $person) : ?>
-              <a class="inline-block mr-2" href="/people/<?= $person->slug() ?>"><?= $person->title() ?></a>
-            <?php endforeach ?>
-          </div>
-        <?php endif ?>
-        <?php if ($page->members()->isNotEmpty()) : ?>
-          <div>
-            <h5 class="mb-2">CONTRIBUTORS</h5>
-            <?php
-            $participants =  $page->members()->toPages();
-            foreach ($participants as $person) : ?>
-              <a class="inline-block mr-2" href="/people/<?= $person->slug() ?>"><?= $person->title() ?></a>
-            <?php endforeach ?>
-          </div>
-        <?php endif ?>
-
-      </div>
-      -->
-    </div>
-
-
-
-    <!-- Project body -->
-    <?php if ($page->description()->isNotEmpty()) : ?>
-      <div class="mb-8">
-        <h5>DESCRIPTION</h5>
-        <div class="prose">
-          <?= $page->description()->kt() ?>
         </div>
-      </div>
-    <?php endif ?>
-
-    <hr />
-
-    <!-- Nav -->
-    <div class="flex flex-wrap">
-      <div class="flex-auto text-left">
-        <?php
-        $collection = $page->siblings()->sortBy('title', 'asc');
-        if ($prev = $page->prevListed($collection)) : ?>
-          &larr; <a href="<?= $prev->url() ?>"><?= $prev->title() ?></a>
-        <?php endif ?>
-      </div>
-
-      <div class="flex-auto text-center">
-        <a href="<?= $page->parent()->url() ?>">Deliberative Tool Gallery</a>
-      </div>
-
-      <div class="flex-auto text-right">
-        <?php
-        $collection = $page->siblings()->sortBy('title', 'asc');
-        if ($next = $page->nextListed($collection)) : ?>
-          <a href="<?= $next->url() ?>"><?= $next->title() ?></a> &rarr;
-        <?php endif ?>
-      </div>
+      <?php endif ?>
+      <?php if ($page->inputs()->isNotEmpty()) : ?>
+        <div>
+          <h5 class="mb-2">Inputs</h5>
+          <span><?= $page->inputs()->esc() ?></span>
+        </div>
+      <?php endif ?>
+      <?php if ($page->inputs()->isNotEmpty()) : ?>
+        <div>
+            <h5 class="mb-2">Outputs</h5>
+            <span><?= $page->outputs()->esc() ?></span>
+        </div>
+      <?php endif ?>
     </div>
-    <!-- End Nav -->
-
 
   </article>
 
