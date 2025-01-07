@@ -7,7 +7,22 @@
       <div>
         <h4 class="font-black text-brand pb-2">Stage</h4>
         <ul class="indent-2">
-          <?php snippet('blocks/checkboxfilter', ['filters' => $stages, 'group' => 'stage', 'label' => 'Stage']) ?>
+          <?php snippet(
+            'blocks/checkboxfilter',
+            [
+              'filters' => [
+                'Framing',
+                'Elicitaion',
+                "Learning",
+                "Deliberation",
+                "Decision",
+                "Actuation",
+                "Reflection"
+              ],
+              'group' => 'stage',
+              'label' => 'Stage'
+            ]) 
+          ?>
         </ul>
       </div>
       <div>

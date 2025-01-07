@@ -41,8 +41,7 @@ columns:
               - "Elicitation"
               - "Learning"
               - "Deliberation"
-              - "Decisional"
-              - "Deciding"
+              - "Decision"
               - "Actuation"
               - "Reflection"
 
