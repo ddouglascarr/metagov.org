@@ -57,22 +57,15 @@ columns:
             label: Function
             type: tags
             options:
-              - "Identifying tradeoffs"
-              - "Drafting policies"
-              - "Editing policies"
-              - "Identifying scenarios"
-              - "Mapping the problem space"
-              - "Mapping the solution space"
-              - "Identifying expertise"
-              - "Navigating conflict"
-              - "Coming to decisions"
-              - "Evaluating evidentiary justification for decisions"
-              - "Reconciling conflicting versions of policies"
-              - "Executing on policies"
-              - "Adjudicating using policies"
-              - "Determining budgets"
-              - "Creating agendas"
-              - "Prioritizing"
+              - "Debate"
+              - "Merging"
+              - "Permissions"
+              - "Share"
+              - "Paraphrase"
+              - "Steelman"
+              - "Decide"
+              - "Fact Checking"
+              - "Summary"
 
           license:
             label: License
