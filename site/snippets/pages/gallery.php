@@ -51,7 +51,7 @@
 
         <?php endforeach ?>
       </ul>
-      <div id="no-result" class="block hidden">
+      <div id="no-result" class="hidden">
         <p>No projects found</p>
       </div>
     </div>
@@ -74,10 +74,13 @@
   console.log('projectList', projectList)
 
   projectList.on('updated', function(list) {
+    const el = document.getElementById("no-result")
     if (list.matchingItems.length > 0) {
-      document.getElementById("no-result").classList.add('hidden')
+      el.classList.add('hidden')
+      el.classList.remove('block')
     } else {
-      document.getElementById("no-result").classList.remove('hidden')
+      el.classList.remove('hidden')
+      el.classList.add('block')
     }
   });
 
