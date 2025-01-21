@@ -51,9 +51,9 @@
 
         <?php endforeach ?>
       </ul>
-    </div>
-    <div id="no-result" class="hidden">
-      <p>No projects found</p>
+      <div id="no-result" class="block hidden">
+        <p>No projects found</p>
+      </div>
     </div>
   </div>
 </div>
@@ -75,9 +75,9 @@
 
   projectList.on('updated', function(list) {
     if (list.matchingItems.length > 0) {
-      document.getElementById("no-result").style.display = 'hidden'
+      document.getElementById("no-result").classList.add('hidden')
     } else {
-      document.getElementById("no-result").style.display = 'block'
+      document.getElementById("no-result").classList.remove('hidden')
     }
   });
 
