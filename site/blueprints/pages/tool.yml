@@ -24,7 +24,7 @@ columns:
         required: true
       website:
         label: Website
-        description: Link to project site for iframe / embedding
+        description: Link to project site
         type: url
       inputs:
         label: Inputs
