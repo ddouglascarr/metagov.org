@@ -6,6 +6,5 @@ return function ($page, $pages, $site, $kirby) {
   $types = $page->children()->pluck("type", ",", true);
   $status = $page->children()->pluck("project_status", ",", true);;
   $seekingParticipants = ['Yes', 'No'];
-  $stages = $page->children()->pluck("stage", ",", true);
-  return A::merge($shared, compact('categories', 'stage', 'types', 'status', 'seekingParticipants'));
+  return A::merge($shared, compact('categories', 'types', 'status', 'seekingParticipants'));
 };
