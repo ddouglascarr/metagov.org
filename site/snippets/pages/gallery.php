@@ -12,12 +12,13 @@
             [
               'filters' => [
                 'Framing',
-                'Elicitaion',
-                "Learning",
-                "Deliberation",
-                "Decision",
-                "Actuation",
-                "Reflection"
+                'Elicition',
+                'Elicitation',
+                'Learning',
+                'Deliberation',
+                'Decision',
+                'Actuation',
+                'Reflection'
               ],
               'group' => 'stage',
               'label' => 'Stage'
